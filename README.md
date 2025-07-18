@@ -78,7 +78,7 @@ python robo_splatter/scripts/render_scene_batch.py --data_file robo_splatter/con
 ## 🙏 致谢 | Acknowledgments
 
 We utilize the rasterization kernel from [gsplat](https://github.com/nerfstudio-project/gsplat).
-The design draws inspiration from [DriveStudio] (https://github.com/ziyc/drivestudio) and [DISCOVERSE](https://github.com/TATP-233/DISCOVERSE).
+The design draws inspiration from [DriveStudio](https://github.com/ziyc/drivestudio) and [DISCOVERSE](https://github.com/TATP-233/DISCOVERSE).
 
 
 ## ⚖️ License
