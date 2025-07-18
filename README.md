@@ -15,7 +15,6 @@
 ## 🛠️ 安装指南 | Installation Guide
 - **Python**: 3.10+
 - **CUDA**: 11.8+
-- **Docker**: docker.hobot.cc/imagesys/robot_lab_base:asset3d-ubuntu22.04-gcc11.4-py3.10-cu118-torch2.1.0
 
 ### 环境配置 ｜ Environment Configuration
 
