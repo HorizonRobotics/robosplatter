@@ -1,0 +1,16 @@
+# ------------- GS Model ------------ #
+background:
+  type: models.vanilla.VanillaGaussians
+  device: "cuda:0"
+  model_path: "./assets/example_assert/scene/lab_table.ply"
+
+foreground:
+  type: models.rigid.RigidsGaussians
+  device: "cuda:0"
+  instances:
+    0:
+      gs_model_path: "./assets/example_assert/object/golden_cup.ply"
+      mesh_model_path: ""
+      init_pose: [-0.2, -0.17, 0.70, 0, 0, 0, 1]
+      instance_name: "golden_cup"
+      class_name: "golden_cup"

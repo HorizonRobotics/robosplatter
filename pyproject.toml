@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["robo_splatter"]
+
+[project]
+name = "robo_splatter"
+version = "v0.0.1"
+dependencies = [
+    "numpy==1.24.4",
+    "pytest",
+    "rich",
+    "dataclasses_json",
+    "opencv-python>4.5",
+    "tyro",
+    "scikit-learn",
+    "cpplint",
+    "pre-commit",
+    "imageio",
+    "imageio-ffmpeg",
+    "moviepy==1.0.3",
+    "torch==2.1.0+cu118",
+    "torchvision==0.16.0+cu118",
+    "torchaudio==2.1.0+cu118",
+    "ninja==1.11.1.1",
+    "plyfile",
+    "Jinja2==3.1.4",
+    "gsplat@git+https://github.com/nerfstudio-project/gsplat.git@v1.5.2"
+]
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = [
+    "pydocstyle",
+    "black",
+    "isort"
+]
+
+[project.scripts]
+render-cli = "robo_splatter.scripts.render_scene:entrypoint"
+
+[tool.pydocstyle]
+match = '(?!test_).*(?!_pb2)\.py'
+match-dir = '^(?!(raw|projects|thirdparty)$)[\w.-]+$'
+convention = "google"
+add-ignore = 'D104,D107,D202,D105,D100,D102,D103,D101,E203,W503'
+
+[tool.black]
+line-length = 79
+exclude = "thirdparty"
+
+[tool.isort]
+line_length = 79
+profile = 'black'
+no_lines_before = 'FIRSTPARTY'
+known_first_party = ['robo_splatter']
+skip = "thirdparty/"

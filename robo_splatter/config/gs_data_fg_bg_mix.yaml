@@ -1,0 +1,16 @@
+# ------------- GS Model ------------ #
+background:
+  type: models.vanilla.VanillaGaussians
+  # [x, y, z, qx, qy, qz, qw] = [0, 0, 0, 0, 0, 0, 1]
+  model_path: "./assets/example_assert/scene/office.ply"
+
+foreground:
+  type: models.rigid.RigidsGaussians
+  instances:
+    0:
+      gs_model_path: "./assets/example_assert/object/desk2.ply"
+      mesh_model_path: ""
+      init_pose: [-1.2, 0.64, 0, 0, 0, 0, 1] # [x, y, z, qx, qy, qz, qw]
+      instance_name: "fg"
+      class_name: "foreground"
+      scale: 1
