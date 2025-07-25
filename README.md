@@ -26,11 +26,11 @@
 git clone https://github.com/HorizonRobotics/RoboSplatter.git
 cd robosplatter
 
-# 2. Set up a conda environment:
+# 2. Set up a uv environment:
 uv sync
 
 # 3. Install the required dependencies (Take few mins to compile gsplat):
-pip install -e .
+uv pip install -e .
 pre-commit install # only for developer
 ```
 
