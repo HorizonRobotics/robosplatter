@@ -44,7 +44,7 @@ The example assets will exist in `assets/example_asset` if you have configured `
 
 #### render background
 ```sh
-uv run render-cli --data_file robo_splatter/config/gs_data_basic.yaml \
+uv run render-cli --data_file config/gs_data_basic.yaml \
   --camera_extrinsic "[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], [0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]" \
   --camera_intrinsic "[[606.6, 0.0, 326.3], [0.0, 607.6, 242.7], [0.0, 0.0, 1.0]]" \
   --image_height 480 \
@@ -55,7 +55,7 @@ uv run render-cli --data_file robo_splatter/config/gs_data_basic.yaml \
 
 #### render scene batch
 ```sh
-uv run robo_splatter/scripts/render_scene_batch.py --data_file robo_splatter/config/gs_data_fg_bg_mix.yaml \
+uv run robo_splatter/scripts/render_scene_batch.py --data_file config/gs_data_fg_bg_mix.yaml \
   --camera_extrinsic "[[0, 1.5, 0, 0.0, -0.7071, 0.0, -0.7071], [0, 1.5, 0.0, 0.0, -0.5, 0.0, -0.866], [0, 1.5, 0.0, 0.0, -0.2588, 0.0, -0.9659], [0, 1.5, 0.0, 0.0, 0.0, 0.0, -1.0], [0, 1.5, 0.0, 0.0, 0.2588, 0.0, -0.9659], [0, 1.5, 0.0, 0.0, 0.5, 0.0, -0.866], [0, 1.5, 0.0, 0.0, 0.7071, 0.0, -0.7071], [0, 1.5, 0.0, 0.0, 0.866, 0.0, -0.5], [0, 1.5, 0.0, 0.0, 0.9659, 0.0, -0.2588], [0, 1.5, 0.0, 0.0, 1.0, 0.0, 0.0], [0, 1.5, 0.0, 0.0, 0.9659, 0.0, 0.2588], [0, 1.5, 0.0, 0.0, 0.866, 0.0, 0.5],[0, 1.5, 0, 0.0, -0.7071, 0.0, -0.7071]]" \
   --camera_intrinsic "[[256.0, 0.0, 512.0], [0.0, 256.0, 512.0], [0.0, 0.0, 1.0]]" \
   --image_height 1024 \
