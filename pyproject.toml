@@ -1,41 +1,32 @@
-[build-system]
-requires = ["setuptools", "wheel", "build"]
-build-backend = "setuptools.build_meta"
+[project]
+name = "robo_splatter"
+version = "0.1.0"
+description = "Gaussian Splatting for Robotic Simulation"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dataclasses-json>=0.6.7",
+    "gsplat>=1.5.3",
+    "imageio>=2.37.0",
+    "imageio-ffmpeg>=0.6.0",
+    "opencv-python-headless>=4.12.0.88",
+    "plyfile>=1.1.2",
+    "pyyaml>=6.0.2",
+    "scikit-learn>=1.7.1",
+    "scipy>=1.16.0",
+    "torch>=2.7.1",
+    "tqdm>=4.67.1",
+]
 
 [tool.setuptools]
 packages = ["robo_splatter"]
-
-[project]
-name = "robo_splatter"
-version = "v0.0.1"
-dependencies = [
-    "numpy==1.24.4",
-    "pytest",
-    "rich",
-    "dataclasses_json",
-    "opencv-python>4.5",
-    "tyro",
-    "scikit-learn",
-    "cpplint",
-    "pre-commit",
-    "imageio",
-    "imageio-ffmpeg",
-    "moviepy==1.0.3",
-    "torch==2.1.0+cu118",
-    "torchvision==0.16.0+cu118",
-    "torchaudio==2.1.0+cu118",
-    "ninja==1.11.1.1",
-    "plyfile",
-    "Jinja2==3.1.4",
-    "gsplat@git+https://github.com/nerfstudio-project/gsplat.git@v1.5.2"
-]
-requires-python = ">=3.10"
 
 [project.optional-dependencies]
 dev = [
     "pydocstyle",
     "black",
-    "isort"
+    "isort",
+    "pytest",
 ]
 
 [project.scripts]

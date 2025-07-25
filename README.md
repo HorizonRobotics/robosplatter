@@ -13,29 +13,30 @@
 ---
 
 ## 🛠️ 安装指南 | Installation Guide
-- **Python**: 3.10+
-- **CUDA**: 11.8+
+
+### Pre-requests
+- [uv](https://docs.astral.sh/uv/)
+- [git-lfs](https://git-lfs.com/)
+- CUDA >= 11.8
 
 ### 环境配置 ｜ Environment Configuration
 
 ```sh
-  # 1. Clone the repository:
-  git clone git@jh-gitlab.hobot.cc:dep/robot-lab/robosplatter.git
-  cd robosplatter
-  # 2. Set up a conda environment:
-  # conda config --add channels conda-forge
-  conda create -n robo_splatter python=3.10.15 -y
-  conda activate robo_splatter
-  # 3. Install the required dependencies (Take few mins to compile gsplat):
-  pip install -e .
-  pre-commit install # only for developer
+# 1. Clone the repository:
+git clone https://github.com/HorizonRobotics/RoboSplatter.git
+cd robosplatter
+
+# 2. Set up a uv environment:
+uv sync
+
+# 3. Install the required dependencies (Take few mins to compile gsplat):
+uv pip install -e .
+pre-commit install # only for developer
 ```
 
 ### 下载资产 ｜ Download assets
 
-```sh
-  cd assets && python _download.py && unzip example_assert.zip
-``` 
+The example assets will exist in `assets/example_asset` if you have configured `git-lfs` correctly. If you do not have assets in `assets/example_asset`, please make sure you have configured `git-lfs` properly.
 
 ## 🚀 运行指南 | Running Guide
 
@@ -43,7 +44,7 @@
 
 #### render background
 ```sh
-render-cli --data_file robo_splatter/config/gs_data_basic.yaml \
+uv run render-cli --data_file config/gs_data_basic.yaml \
   --camera_extrinsic "[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], [0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]" \
   --camera_intrinsic "[[606.6, 0.0, 326.3], [0.0, 607.6, 242.7], [0.0, 0.0, 1.0]]" \
   --image_height 480 \
@@ -54,7 +55,7 @@ render-cli --data_file robo_splatter/config/gs_data_basic.yaml \
 
 #### render scene batch
 ```sh
-python robo_splatter/scripts/render_scene_batch.py --data_file robo_splatter/config/gs_data_fg_bg_mix.yaml \
+uv run robo_splatter/scripts/render_scene_batch.py --data_file config/gs_data_fg_bg_mix.yaml \
   --camera_extrinsic "[[0, 1.5, 0, 0.0, -0.7071, 0.0, -0.7071], [0, 1.5, 0.0, 0.0, -0.5, 0.0, -0.866], [0, 1.5, 0.0, 0.0, -0.2588, 0.0, -0.9659], [0, 1.5, 0.0, 0.0, 0.0, 0.0, -1.0], [0, 1.5, 0.0, 0.0, 0.2588, 0.0, -0.9659], [0, 1.5, 0.0, 0.0, 0.5, 0.0, -0.866], [0, 1.5, 0.0, 0.0, 0.7071, 0.0, -0.7071], [0, 1.5, 0.0, 0.0, 0.866, 0.0, -0.5], [0, 1.5, 0.0, 0.0, 0.9659, 0.0, -0.2588], [0, 1.5, 0.0, 0.0, 1.0, 0.0, 0.0], [0, 1.5, 0.0, 0.0, 0.9659, 0.0, 0.2588], [0, 1.5, 0.0, 0.0, 0.866, 0.0, 0.5],[0, 1.5, 0, 0.0, -0.7071, 0.0, -0.7071]]" \
   --camera_intrinsic "[[256.0, 0.0, 512.0], [0.0, 256.0, 512.0], [0.0, 0.0, 1.0]]" \
   --image_height 1024 \
